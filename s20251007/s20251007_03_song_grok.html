@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Let It Go - Ocean Theme with Pink Accents</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(180deg, #1e3c72, #2a5298, #a1c4fd);
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow-x: hidden;
+        }
+
+        h3 {
+            font-size: 36px;
+            text-align: center;
+            color: #ff99cc;
+            /* Pink headline */
+            text-shadow: 0 0 10px rgba(255, 153, 204, 0.8);
+            margin: 20px 0;
+            font-family: 'Georgia', serif;
+            letter-spacing: 2px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px;
+            padding: 20px;
+            background: rgba(255, 245, 247, 0.15);
+            /* Subtle pink-tinted background */
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 153, 204, 0.3);
+            /* Pink border */
+            text-align: center;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin: 10px 0;
+            color: #e6f3ff;
+        }
+
+        a {
+            color: #ff66b2;
+            /* Bright pink link */
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #ff99cc;
+            /* Lighter pink on hover */
+            text-shadow: 0 0 5px rgba(255, 153, 204, 0.8);
+        }
+
+        iframe {
+            border-radius: 10px;
+            margin-top: 20px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Wave animation with pink accent */
+        .wave {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            height: 100px;
+            width: 100%;
+            background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113.64,31.08,1200,40.55V0Z" fill="rgba(255,153,204,0.3)"/></svg>');
+            /* Pink wave */
+            background-size: cover;
+            animation: wave 10s linear infinite;
+        }
+
+        @keyframes wave {
+            0% {
+                background-position-x: 0;
+            }
+
+            100% {
+                background-position-x: 1200px;
+            }
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 600px) {
+            h3 {
+                font-size: 28px;
+            }
+
+            p {
+                font-size: 16px;
+            }
+
+            iframe {
+                width: 100%;
+                height: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wave"></div>
+    <div class="container">
+        <h3>Let It Go</h3>
+        <p>作詞：Kristen Anderson-Lopez 作曲：Robert Lopez</p>
+        <p>
+            The snow glows white on the mountain tonight<br>
+            Not a footprint to be seen<br>
+            A kingdom of isolation and it looks like I’m the queen<br>
+            The wind is howling like this swirling storm inside<br>
+            Couldn’t keep it in, heaven knows I tried<br>
+        </p>
+        <p>
+            Don’t let them in, don’t let them see<br>
+            Be the good girl you always have to be<br>
+            Conceal, don’t feel, don’t let them know<br>
+            Well now they know<br>
+        </p>
+        <p>
+            Let it go, let it go<br>
+            Can’t hold it back anymore<br>
+            Let it go, let it go<br>
+            Turn away and slam the door<br>
+            I don’t care what they’re going to say<br>
+            Let the storm rage on<br>
+            The cold never bothered me anyway.<br>
+        </p>
+        <p><a href="https://www.youtube.com/watch?v=L0MK7qz13bU">Let It Go</a></p>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/L0MK7qz13bU?si=Roqh2tadSoosL2wT"
+            title="YouTube video player" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+</body>
+
+</html>
