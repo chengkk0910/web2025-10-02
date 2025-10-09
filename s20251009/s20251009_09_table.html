@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            width: 60%;
+            height: 80vh;
+            /* 文字置中 */
+            text-align: center;
+            /* 表格置中 */
+            margin: auto;
+        }
+
+        table,
+        tr,
+        td {
+            border: 10px solid lightblue;
+            border-collapse: collapse;
+        }
+
+        /* . class */
+        .left-box {
+            /* 背景顏色 */
+            background-color: lightblue;
+            /* 文字顏色 */
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <td width="30%" class="left-box">
+                <!-- lorem5 產生假文字 -->
+                <h2>
+                    Lorem ipsum dolor sit amet.
+                </h2>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae eveniet veritatis fuga
+                    accusantium, nobis error ea voluptatum eum a. Excepturi?
+                </p>
+            </td>
+            <td class="right-box">
+                <form action="">
+                    <p>
+                        帳號:
+                        <input type="text" name="" id="">
+                    </p>
+                    <p>
+                        密碼:
+                        <input type="password" name="" id="">
+                    </p>
+                    <p>
+                        <input type="reset" value="重置">
+                        <input type="submit" value="送出">
+                    </p>
+
+                </form>
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>
