@@ -12,22 +12,24 @@
     <form action="">
         <p>
             <!-- for id 相同 -->
+            <!-- name 送到php後端 會顯示欄位名稱 -->
             <label for="acc">帳號</label>
-            <input type="text" name="" id="acc">
+            <input type="text" name="acc" id="acc">
         </p>
         <p>
             <label for="pwd">密碼</label>
-            <input type="text" name="" id="pwd">
+            <input type="text" name="pwd" id="pwd">
         </p>
         <p>
-            <input type="radio" name="" id="" value="">
+            <!-- 單選radio name取相同 -->
+            <input type="radio" name="lang" id="" value="">
             <label for="">html</label>
-            <input type="radio" name="" id="" value="">
+            <input type="radio" name="lang" id="" value="">
             <label for="">css</label>
-            <input type="radio" name="" id="" value="">
+            <input type="radio" name="lang" id="" value="">
             <label for="">js</label>
         </p>
-        <p>                        
+        <p>
             <input type="radio" name="" id="">
             <label for="">男</label>
             <br>
@@ -36,16 +38,18 @@
             <br>
         </p>
         <p>
-            <input type="checkbox" name="" id="">
+            <!-- 多選checkbox name [] -->
+            <input type="checkbox" name="hobby[]" id="">
             上網
-            <input type="checkbox" name="" id="">
+            <input type="checkbox" name="hobby[]" id="">
             打球
-            <input type="checkbox" name="" id="">
+            <input type="checkbox" name="hobby[]" id="">
             聽音樂
-            <input type="checkbox" name="" id="">
+            <input type="checkbox" name="hobby[]" id="">
             追劇
         </p>
         <p>
+            <input type="reset" value="重置">
             <input type="submit" value="送出">
         </p>
     </form>
