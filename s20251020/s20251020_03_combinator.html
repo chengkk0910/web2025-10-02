@@ -6,8 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+        /* 兄弟姊妹 少用 */
         .a1~div {
             color: lightgreen;
+        }
+
+        /* 子孫 常用 */
+        .a1>p {
+            color: lightpink;
         }
 
         /* .a2~div {
@@ -23,6 +29,12 @@
 <body>
     <div class="a1">
         劉備
+        <P>
+            &nbsp;&nbsp;&nbsp;&nbsp;劉封
+        </P>
+        <P>
+            &nbsp;&nbsp;&nbsp;&nbsp;劉禪
+        </P>
     </div>
 
     <div class="a2">
