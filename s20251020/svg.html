@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>自學流程圖</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f4f7f6;
+            /* 淺灰色背景 */
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        /* SVG 內部元素的 CSS 樣式 */
+        .start-end {
+            fill: #4CAF50;
+            stroke: #388E3C;
+            stroke-width: 2;
+        }
+
+        /* 綠色 - 開始/結束 */
+        .process-box {
+            fill: #2196F3;
+            stroke: #1976D2;
+            stroke-width: 2;
+        }
+
+        /* 藍色 - 過程 */
+        .decision-box {
+            fill: #FFC107;
+            stroke: #FFA000;
+            stroke-width: 2;
+        }
+
+        /* 黃色 - 決策 */
+        .text {
+            font-size: 14px;
+            fill: #333;
+            font-weight: bold;
+            text-anchor: middle;
+        }
+
+        .arrow {
+            stroke: #555;
+            stroke-width: 2;
+            fill: none;
+            marker-end: url(#arrowhead);
+        }
+
+        .arrow-label {
+            font-size: 12px;
+            fill: #555;
+            text-anchor: middle;
+        }
+
+        .shadow {
+            filter: drop-shadow(3px 3px 2px rgba(0, 0, 0, 0.2));
+        }
+
+        /* 添加陰影 */
+    </style>
+</head>
+
+<body>
+
+    <h1>簡易自學流程圖 (優化版)</h1>
+
+    <svg width="600" height="700" viewBox="0 0 600 700">
+
+        <defs>
+            <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                <polygon points="0 0, 10 3.5, 0 7" fill="#555" />
+            </marker>
+        </defs>
+
+        <g class="shadow">
+            <rect x="200" y="30" width="200" height="50" rx="20" ry="20" class="start-end" />
+            <text x="300" y="60" class="text">1. 開始: 確立自學目標</text>
+        </g>
+
+        <g class="shadow">
+            <rect x="200" y="120" width="200" height="50" rx="5" ry="5" class="process-box" />
+            <text x="300" y="150" class="text">2. 規劃路徑 (拆解步驟)</text>
+        </g>
+
+        <g class="shadow">
+            <rect x="200" y="210" width="200" height="50" rx="5" ry="5" class="process-box" />
+            <text x="300" y="240" class="text">3. 尋找並收集學習資源</text>
+        </g>
+
+        <g class="shadow">
+            <rect x="200" y="300" width="200" height="50" rx="5" ry="5" class="process-box" />
+            <text x="300" y="330" class="text">4. 實際學習與動手實作</text>
+        </g>
+
+        <g class="shadow">
+            <polygon points="300,410 400,460 300,510 200,460" class="decision-box" />
+            <text x="300" y="465" class="text">5. 評估與反饋?</text>
+        </g>
+
+        <g class="shadow">
+            <rect x="200" y="550" width="200" height="50" rx="5" ry="5" class="process-box" />
+            <text x="300" y="580" class="text">6. 修正與深化知識</text>
+        </g>
+
+        <g class="shadow">
+            <polygon points="300,640 400,690 300,740 200,690" class="decision-box" />
+            <text x="300" y="695" class="text">7. 達成目標?</text>
+        </g>
+
+        <g class="shadow">
+            <rect x="450" y="665" width="100" height="50" rx="20" ry="20" class="start-end" />
+            <text x="500" y="695" class="text">結束</text>
+        </g>
+
+
+        <line x1="300" y1="80" x2="300" y2="120" class="arrow" />
+
+        <line x1="300" y1="170" x2="300" y2="210" class="arrow" />
+
+        <line x1="300" y1="260" x2="300" y2="300" class="arrow" />
+
+        <line x1="300" y1="350" x2="300" y2="410" class="arrow" />
+
+        <line x1="300" y1="510" x2="300" y2="550" class="arrow" />
+        <text x="325" y="535" class="arrow-label">Yes/順利</text>
+
+        <line x1="300" y1="600" x2="300" y2="640" class="arrow" />
+
+        <polyline points="200,690 100,690 100,325 200,325" class="arrow" />
+        <text x="120" y="690" class="arrow-label">No</text>
+
+        <line x1="400" y1="690" x2="450" y2="690" class="arrow" />
+        <text x="425" y="675" class="arrow-label">Yes</text>
+
+    </svg>
+
+    <p style="margin-top: 30px; color: #666;">流程圖重點：實作與反饋是持續進步的關鍵。</p>
+
+</body>
+
+</html>
