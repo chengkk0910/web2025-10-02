@@ -1,40 +1,90 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-TW">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>CSS Float 文繞圖範例</title>
     <style>
+        /* 全局設定 */
         * {
-            /* margin: 0; */
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
-        .inline-block {
-            display: inline-block;
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            padding: 20px;
         }
 
-        .container-left {
-            width: 19%;
-            height: 100vh;
-            background-color: lightpink;
+        /* ------------------------------------- */
+        /* 1. Clearfix 解決高度塌陷問題 */
+        /* ------------------------------------- */
+        .clearfix::after {
+            content: "";
+            display: table;
+            clear: both;
+            /* 清除所有浮動 */
         }
 
-        .container-right {
-            width: 80%;
-            height: 100vh;
-            background-color: lightblue;
-            /* margin-left: -5px; */
+        /* ------------------------------------- */
+        /* 2. 浮動元素樣式 */
+        /* ------------------------------------- */
+        .box-float-right {
+            /* 浮動設定 */
+            float: right;
+
+            /* 間距設定 */
+            margin-right: 100px;
+            /* 右邊界推開 100px 的間距 */
+            margin-left: 20px;
+            /* 與左邊文字之間的間距 */
+            margin-bottom: 10px;
+            /* 與下方文字之間的間距 */
+
+            /* 尺寸與視覺 */
+            width: 250px;
+            /* 浮動元素必須有明確寬度 */
+            height: 150px;
+            background-color: #66cdaa;
+            /* 淺綠色 */
+            border: 2px solid #38705f;
+            padding: 15px;
+            text-align: center;
+            font-weight: bold;
+            color: #333;
+        }
+
+        /* ------------------------------------- */
+        /* 3. 父容器與內容區塊樣式 */
+        /* ------------------------------------- */
+        .content-container {
+            border: 1px dashed #e74c3c;
+            padding: 15px;
+            background-color: #f7f7f7;
+        }
+
+        .section-title {
+            margin-bottom: 15px;
+            color: #2c3e50;
         }
     </style>
 </head>
 
 <body>
-    <div class="inline-block container-left">
-        Lorem ipsum dolor sit amet.
-    </div>
-    <div class="inline-block container-right">
-    </div>
-</body>
 
-</html>
+    <h1 class="section-title">Word 文繞圖效果範例 (Float + Margin)</h1>
+
+    <div class="content-container clearfix">
+
+        <div class="box-float-right">
+            <h3>浮動區塊</h3>
+            <p>這個區塊設定了 float: right 和 margin-right: 100px。</p>
+        </div>
+
+        <p>
+            這是一段示範文字。當一個元素被設定為 float: right; 時，它會從正常的文檔流中移除並貼向右邊。
+            後續的內容（如這段文字）會自動流動並填滿浮動元素左側的可用空間，形成「文繞圖」的效果。
+            同時，由於我們設定了 margin-right: 100px，所以浮動區塊和瀏覽器右邊界之間會保留
