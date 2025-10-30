@@ -44,17 +44,21 @@
             height: 100vh;
             background-color: lightyellow;
         } */
+        iframe {
+            width: 100%;
+            height: 100%;
+        }
     </style>
 </head>
 
 <body>
     <div class="container-menu">
-        <a href="">A</a>
-        <a href="">B</a>
-        <a href="">C</a>
+        <a href="./web/pageA.html" target="myIframe">A</a>
+        <a href="./web/pageB.html" target="myIframe">B</a>
+        <a href="./web/pageC.html" target="myIframe">C</a>
     </div>
     <div class="container-main">
-
+        <iframe name="myIframe" src="./web/pageA.html" frameborder="0"></iframe>
     </div>
     <!-- <div class="container-ad">
 
