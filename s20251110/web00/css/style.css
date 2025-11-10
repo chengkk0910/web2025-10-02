@@ -1,8 +1,9 @@
 * {
     box-sizing: border-box;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
+/* header */
 .header {
     width: 1024px;
     height: 65px;
@@ -10,14 +11,36 @@
     margin: auto;
 }
 
+
+/* container */
 .container {
     width: 1024px;
     /* -前面 要空格 */
     height: calc(768px - 65px - 20px);
     background-color: lightpink;
     margin: auto;
+
+    display: flex;
+    /* justify-content: center;
+    align-items: center; */
 }
 
+/*container-left*/
+.container-left {
+    width: 215px;
+    height: 100%;
+    background-color: blueviolet;
+}
+
+/* container-right */
+.container-right {
+    /* width: calc(100% - 215px); */
+    width: calc(1024px - 215px);
+    height: 100%;
+    background-color: lightgreen;
+}
+
+/* footer */
 .footer {
     width: 1024px;
     /* -前面 要空格 */
