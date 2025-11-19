@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>彈跳效果首頁範例</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* 設定整個頁面的基本樣式 */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+        }
+
+        .header-container {
+            text-align: center;
+            padding: 20px 40px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* -------------------------------------- */
+        /* 彈跳效果的關鍵程式碼 */
+        /* -------------------------------------- */
+
+        h1 {
+            color: #333;
+            font-size: 2.5em;
+            display: inline-block;
+            /* 讓 h1 只佔用內容寬度，以便彈跳更明顯 */
+
+            /* 1. 設置動畫屬性 */
+            animation-name: bounce;
+            /* 指定動畫名稱 (必須與 @keyframes 名稱匹配) */
+            animation-duration: 2s;
+            /* 動畫持續時間 (2 秒) */
+            animation-timing-function: cubic-bezier(0.28, 0.84, 0.42, 1);
+            /* 讓彈跳看起來更自然 */
+            animation-iteration-count: infinite;
+            /* 無限次重複播放 */
+        }
+
+        /* 2. 定義 @keyframes */
+        @keyframes bounce {
+            0% {
+                transform: translateY(0);
+                /* 起始位置：沒有垂直位移 */
+            }
+
+            40% {
+                transform: translateY(-30px);
+                /* 向上跳躍 */
+            }
+
+            60% {
+                transform: translateY(0);
+                /* 回到地面 */
+            }
+
+            80% {
+                transform: translateY(-15px);
+                /* 第二次較小的向上跳躍 */
+            }
+
+            100% {
+                transform: translateY(0);
+                /* 最終回到地面 */
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header-container">
+        <h1>歡迎來到我的首頁！</h1>
+    </div>
+</body>
+
+</html>
