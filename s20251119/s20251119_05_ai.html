@@ -4,80 +4,165 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>彈跳效果首頁範例</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>彈跳效果與柔和飄動雲朵首頁範例</title>
     <style>
         /* 設定整個頁面的基本樣式 */
         body {
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
             margin: 0;
             font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
+            background: linear-gradient(to bottom, #87CEEB, #B0E0E6);
+            /* 漸層藍天背景 */
+            overflow: hidden;
+            position: relative;
         }
 
         .header-container {
             text-align: center;
             padding: 20px 40px;
-            background-color: #ffffff;
+            background-color: rgba(255, 255, 255, 0.9);
             border-radius: 10px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            z-index: 10;
+            position: relative;
         }
 
         /* -------------------------------------- */
-        /* 彈跳效果的關鍵程式碼 */
+        /* 彈跳效果的關鍵程式碼 (與之前相同) */
         /* -------------------------------------- */
 
         h1 {
             color: #333;
             font-size: 2.5em;
             display: inline-block;
-            /* 讓 h1 只佔用內容寬度，以便彈跳更明顯 */
-
-            /* 1. 設置動畫屬性 */
             animation-name: bounce;
-            /* 指定動畫名稱 (必須與 @keyframes 名稱匹配) */
             animation-duration: 2s;
-            /* 動畫持續時間 (2 秒) */
             animation-timing-function: cubic-bezier(0.28, 0.84, 0.42, 1);
-            /* 讓彈跳看起來更自然 */
             animation-iteration-count: infinite;
-            /* 無限次重複播放 */
         }
 
-        /* 2. 定義 @keyframes */
         @keyframes bounce {
             0% {
                 transform: translateY(0);
-                /* 起始位置：沒有垂直位移 */
             }
 
             40% {
                 transform: translateY(-30px);
-                /* 向上跳躍 */
             }
 
             60% {
                 transform: translateY(0);
-                /* 回到地面 */
             }
 
             80% {
                 transform: translateY(-15px);
-                /* 第二次較小的向上跳躍 */
             }
 
             100% {
                 transform: translateY(0);
-                /* 最終回到地面 */
+            }
+        }
+
+        /* -------------------------------------- */
+        /* SVG 雲朵與飄動效果的關鍵程式碼 (更新柔和度) */
+        /* -------------------------------------- */
+
+        .clouds-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .cloud {
+            position: absolute;
+            width: 200px;
+            /* 雲朵大小調整 */
+            height: 120px;
+            opacity: 0.9;
+            /* 稍微透明 */
+
+            /* 關鍵的柔和化樣式 */
+            filter: blur(8px);
+            /* 應用模糊濾鏡，讓邊緣柔和 */
+            /* 添加一點陰影，增加立體感 */
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 50%;
+            /* 雖然是 SVG，但加這個可以幫助視覺上更圓潤，特別是當有陰影時 */
+        }
+
+        /* 單獨設置每朵雲的位置和動畫速度 */
+        .cloud-1 {
+            top: 10%;
+            left: -20%;
+            transform: scale(1.3);
+            /* 讓這朵雲大一點 */
+            animation: float 28s linear infinite;
+            /* 調整速度 */
+            animation-delay: 0s;
+        }
+
+        .cloud-2 {
+            top: 30%;
+            left: -15%;
+            transform: scale(1.0);
+            /* 正常大小 */
+            animation: float 35s linear infinite;
+            /* 調整速度 */
+            animation-delay: 7s;
+            /* 調整延遲 */
+        }
+
+        .cloud-3 {
+            top: 20%;
+            left: -25%;
+            transform: scale(1.1);
+            animation: float 23s linear infinite;
+            /* 調整速度 */
+            animation-delay: 14s;
+            /* 調整延遲 */
+        }
+
+        /* 定義雲朵飄動的動畫 */
+        @keyframes float {
+            0% {
+                transform: translateX(-120%);
+                /* 調整起始位置，確保完全出螢幕 */
+            }
+
+            100% {
+                transform: translateX(120vw);
+                /* 調整結束位置，確保完全出螢幕 */
             }
         }
     </style>
 </head>
 
 <body>
+    <div class="clouds-container">
+        <svg class="cloud cloud-1" viewBox="0 0 200 120">
+            <path
+                d="M 100 40 Q 130 10 160 30 C 180 50 180 70 160 80 Q 140 100 100 90 Q 60 100 40 80 C 20 70 20 50 40 30 Q 70 10 100 40 Z"
+                fill="#ffffff" />
+        </svg>
+        <svg class="cloud cloud-2" viewBox="0 0 200 120">
+            <path
+                d="M 100 40 Q 130 10 160 30 C 180 50 180 70 160 80 Q 140 100 100 90 Q 60 100 40 80 C 20 70 20 50 40 30 Q 70 10 100 40 Z"
+                fill="#ffffff" />
+        </svg>
+        <svg class="cloud cloud-3" viewBox="0 0 200 120">
+            <path
+                d="M 100 40 Q 130 10 160 30 C 180 50 180 70 160 80 Q 140 100 100 90 Q 60 100 40 80 C 20 70 20 50 40 30 Q 70 10 100 40 Z"
+                fill="#ffffff" />
+        </svg>
+    </div>
+
     <div class="header-container">
         <h1>歡迎來到我的首頁！</h1>
     </div>
