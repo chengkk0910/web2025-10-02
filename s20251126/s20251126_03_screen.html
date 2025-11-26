@@ -6,8 +6,11 @@
     <p id="demo"></p>
 
     <script>
+        // window bom 最底層
+        // window.screen vs screen ?
+        // window 預設 省略
         document.getElementById("demo").innerHTML =
-            "Screen width is " + screen.width + "--" + screen.height;
+            "Screen width is " + window.screen.width + "--" + screen.height;
     </script>
 
 </body>
