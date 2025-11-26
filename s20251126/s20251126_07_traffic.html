@@ -109,6 +109,14 @@
             myTv.setAttribute('class', 'box-tv bg-yellow');
         });
 
+        myTv.addEventListener('click', function () {
+            // this 我自己
+            console.log('this', this);
+            this.setAttribute('class', 'box-tv');
+        });
+
+
+
     </script>
 </body>
 
