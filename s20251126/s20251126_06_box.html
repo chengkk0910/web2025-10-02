@@ -20,6 +20,10 @@
             margin: auto;
             margin-top: 10px;
         }
+
+        .bg-yellow {
+            background-color: lightyellow;
+        }
     </style>
 </head>
 
@@ -42,6 +46,14 @@
         console.log('myBtn', myBtn);
 
         // 2.action
+        // 1.myBtn click tv變色
+
+        // 1.myBtn click tv變色
+        myBtn.addEventListener('click', function () {
+            // class add bg-yellow
+
+            myTv.setAttribute('class', 'box-tv bg-yellow');
+        });
 
     </script>
 </body>
