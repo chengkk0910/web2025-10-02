@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML 30小時自學攻略</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&family=Roboto+Mono:wght@500&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --primary: #e44d26;
+            /* HTML5 Orange */
+            --secondary: #f16529;
+            --dark: #1a1a1a;
+            --light: #f5f5f5;
+            --accent: #33a9dc;
+        }
+
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            background-color: #f0f2f5;
+            color: var(--dark);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            width: 100%;
+            padding: 2rem 1rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        p.subtitle {
+            margin-top: 0.5rem;
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 800px;
+            padding: 2rem;
+            background: white;
+            margin: 2rem auto;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+        }
+
+        /* SVG Styles */
+        svg {
+            width: 100%;
+            height: auto;
+            max-height: 1200px;
+            overflow: visible;
+        }
+
+        .path-line {
+            fill: none;
+            stroke: #ddd;
+            stroke-width: 4;
+            stroke-linecap: round;
+            stroke-dasharray: 10, 10;
+        }
+
+        .path-active {
+            fill: none;
+            stroke: var(--primary);
+            stroke-width: 4;
+            stroke-linecap: round;
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+            animation: drawPath 3s ease-out forwards;
+        }
+
+        .node-bg {
+            fill: white;
+            stroke: var(--primary);
+            stroke-width: 3;
+            filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+            transition: all 0.3s ease;
+        }
+
+        .node-group:hover .node-bg {
+            fill: var(--primary);
+            stroke: var(--secondary);
+            transform: scale(1.02);
+        }
+
+        .node-text {
+            font-family: 'Noto Sans TC', sans-serif;
+            font-weight: 700;
+            fill: var(--dark);
+            text-anchor: middle;
+            dominant-baseline: middle;
+            pointer-events: none;
+            transition: fill 0.3s ease;
+        }
+
+        .node-group:hover .node-text {
+            fill: white;
+        }
+
+        .node-desc {
+            font-size: 12px;
+            fill: #666;
+            text-anchor: middle;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .node-group:hover .node-desc {
+            opacity: 1;
+            fill: white;
+        }
+
+        .time-badge {
+            fill: var(--accent);
+            rx: 10;
+        }
+
+        .time-text {
+            fill: white;
+            font-size: 12px;
+            font-weight: bold;
+            text-anchor: middle;
+            dominant-baseline: middle;
+        }
+
+        @keyframes drawPath {
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            .container {
+                padding: 1rem;
+                margin: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>HTML 30小時自學地圖</h1>
+        <p class="subtitle">從零基礎到網頁結構大師的完整學習路徑</p>
+    </header>
+
+    <div class="container">
+        <svg viewBox="0 0 600 900" xmlns="http://www.w3.org/2000/svg">
+            <!-- Path -->
+            <path class="path-line" d="M300,50 L300,150 L300,300 L300,450 L300,600 L300,750 L300,850" />
+            <path class="path-active" d="M300,50 L300,150 L300,300 L300,450 L300,600 L300,750 L300,850" />
+
+            <!-- Start Node -->
+            <g class="node-group" transform="translate(300, 50)">
+                <circle class="node-bg" r="30" style="stroke: #28a745;" />
+                <text class="node-text" dy="5">起點</text>
+            </g>
+
+            <!-- Phase 1: 0-5 Hours -->
+            <g class="node-group" transform="translate(300, 150)">
+                <rect class="node-bg" x="-120" y="-40" width="240" height="80" rx="15" />
+                <text class="node-text" y="-10">基礎概念 (0-5h)</text>
+                <text class="node-desc" y="15">編輯器安裝, 標籤語法, DOM 結構</text>
+
+                <!-- Badge -->
+                <rect class="time-badge" x="90" y="-50" width="50" height="24" />
+                <text class="time-text" x="115" y="-38">入門</text>
+            </g>
+
+            <!-- Phase 2: 5-10 Hours -->
+            <g class="node-group" transform="translate(300, 300)">
+                <rect class="node-bg" x="-120" y="-40" width="240" height="80" rx="15" />
+                <text class="node-text" y="-10">文本與連結 (5-10h)</text>
+                <text class="node-desc" y="15">標題, 段落, 列表, 超連結, 圖片</text>
+
+                <rect class="time-badge" x="90" y="-50" width="50" height="24" />
+                <text class="time-text" x="115" y="-38">核心</text>
+            </g>
+
+            <!-- Phase 3: 10-15 Hours -->
+            <g class="node-group" transform="translate(300, 450)">
+                <rect class="node-bg" x="-120" y="-40" width="240" height="80" rx="15" />
+                <text class="node-text" y="-10">表格與語意化 (10-15h)</text>
+                <text class="node-desc" y="15">Table, Div vs Span, HTML5 語意標籤</text>
+
+                <rect class="time-badge" x="90" y="-50" width="50" height="24" />
+                <text class="time-text" x="115" y="-38">結構</text>
+            </g>
+
+            <!-- Phase 4: 15-20 Hours -->
+            <g class="node-group" transform="translate(300, 600)">
+                <rect class="node-bg" x="-120" y="-40" width="240" height="80" rx="15" />
+                <text class="node-text" y="-10">表單互動 (15-20h)</text>
+                <text class="node-desc" y="15">Input 類型, Form 屬性, 驗證</text>
+
+                <rect class="time-badge" x="90" y="-50" width="50" height="24" />
+                <text class="time-text" x="115" y="-38">互動</text>
+            </g>
+
+            <!-- Phase 5: 20-30 Hours -->
+            <g class="node-group" transform="translate(300, 750)">
+                <rect class="node-bg" x="-120" y="-40" width="240" height="80" rx="15" />
+                <text class="node-text" y="-10">進階與實戰 (20-30h)</text>
+                <text class="node-desc" y="15">SEO Meta, 無障礙 (ARIA), 專案實作</text>
+
+                <rect class="time-badge" x="90" y="-50" width="50" height="24" />
+                <text class="time-text" x="115" y="-38">實戰</text>
+            </g>
+
+            <!-- End Node -->
+            <g class="node-group" transform="translate(300, 850)">
+                <circle class="node-bg" r="30" style="stroke: #28a745; fill: #28a745;" />
+                <text class="node-text" dy="5" style="fill: white;">完成</text>
+            </g>
+        </svg>
+    </div>
+
+    <script>
+        // Simple interaction to highlight nodes on scroll could be added here
+        // For now, CSS hover effects provide interactivity
+        console.log("HTML Learning Roadmap Loaded!");
+    </script>
+</body>
+
+</html>
