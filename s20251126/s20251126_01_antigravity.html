@@ -4,16 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hello Antigravity</title>
+    <title>Hello Antigravity - Ocean Edition</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #0f172a;
-            --text-primary: #f8fafc;
-            --text-secondary: #94a3b8;
-            --accent-gradient: linear-gradient(135deg, #6366f1 0%, #a855f7 50%, #ec4899 100%);
+            --bg-color: #001e3c;
+            --text-primary: #e0f7fa;
+            --text-secondary: #b2ebf2;
+            --accent-gradient: linear-gradient(135deg, #00bcd4 0%, #0288d1 50%, #000051 100%);
+            --card-bg: rgba(0, 30, 60, 0.6);
+            --card-border: rgba(255, 255, 255, 0.1);
         }
 
         * {
@@ -26,12 +28,26 @@
             font-family: 'Outfit', sans-serif;
             background-color: var(--bg-color);
             color: var(--text-primary);
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            overflow: hidden;
+            overflow-x: hidden;
             perspective: 1000px;
+            background-image: url('ocean_bg.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 10, 30, 0.5);
+            z-index: -1;
         }
 
         .background-glow {
@@ -40,53 +56,140 @@
             height: 60vw;
             background: var(--accent-gradient);
             filter: blur(120px);
-            opacity: 0.15;
+            opacity: 0.2;
             border-radius: 50%;
             z-index: -1;
             animation: pulse 8s ease-in-out infinite alternate;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            padding: 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
         }
 
         .card {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            padding: 4rem 6rem;
+            background: var(--card-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--card-border);
+            padding: 4rem;
             border-radius: 24px;
             text-align: center;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
             transform-style: preserve-3d;
             transition: transform 0.1s ease-out;
+            width: 100%;
+            max-width: 900px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Water wave effect at bottom of card */
+        .card::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            animation: wave 3s linear infinite;
+        }
+
+        @keyframes wave {
+            0% {
+                transform: translateX(-100%);
+            }
+
+            100% {
+                transform: translateX(100%);
+            }
         }
 
         h1 {
-            font-size: 5rem;
+            font-size: 4rem;
             font-weight: 700;
             margin-bottom: 1rem;
-            background: var(--accent-gradient);
+            background: linear-gradient(to right, #4fc3f7, #ffffff);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
             letter-spacing: -0.02em;
-            transform: translateZ(20px);
+            transform: translateZ(30px);
+            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         }
 
         p {
             font-size: 1.5rem;
             color: var(--text-secondary);
             font-weight: 300;
-            transform: translateZ(10px);
+            transform: translateZ(20px);
+            margin-bottom: 3rem;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+            transform: translateZ(15px);
+        }
+
+        .gallery-item {
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            aspect-ratio: 4/3;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+            color: white;
+            padding: 1rem;
+            font-size: 1rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-caption {
+            opacity: 1;
         }
 
         @keyframes pulse {
             0% {
-                transform: scale(1);
-                opacity: 0.15;
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 0.2;
             }
 
             100% {
-                transform: scale(1.1);
-                opacity: 0.2;
+                transform: translate(-50%, -50%) scale(1.1);
+                opacity: 0.3;
             }
         }
 
@@ -97,41 +200,68 @@
             }
 
             h1 {
-                font-size: 3rem;
+                font-size: 2.5rem;
+            }
+
+            p {
+                font-size: 1.2rem;
+            }
+
+            .gallery {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 
 <body>
+    <div class="overlay"></div>
     <div class="background-glow"></div>
-    <div class="card" id="tilt-card">
-        <h1>Hello Antigravity</h1>
-        <p>Welcome to the future of web experiences.</p>
+
+    <div class="container">
+        <div class="card" id="tilt-card">
+            <h1>Ocean Vibes</h1>
+            <p>Dive into the deep blue experience.</p>
+
+            <div class="gallery">
+                <div class="gallery-item">
+                    <img src="ocean_coral.png" alt="Colorful Coral Reef">
+                    <div class="gallery-caption">Vibrant Coral Life</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="ocean_sunset.png" alt="Ocean Sunset">
+                    <div class="gallery-caption">Serene Sunset</div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script>
         const card = document.getElementById('tilt-card');
-        const body = document.body;
+        const container = document.querySelector('.container');
 
-        body.addEventListener('mousemove', (e) => {
-            const xAxis = (window.innerWidth / 2 - e.pageX) / 25;
-            const yAxis = (window.innerHeight / 2 - e.pageY) / 25;
+        // Mouse move effect
+        container.addEventListener('mousemove', (e) => {
+            const xAxis = (window.innerWidth / 2 - e.pageX) / 30;
+            const yAxis = (window.innerHeight / 2 - e.pageY) / 30;
             card.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
         });
 
-        body.addEventListener('mouseleave', () => {
+        // Reset on mouse leave
+        container.addEventListener('mouseleave', () => {
             card.style.transform = `rotateY(0deg) rotateX(0deg)`;
         });
 
         // Mobile device orientation support
         if (window.DeviceOrientationEvent) {
             window.addEventListener('deviceorientation', (e) => {
+                if (e.gamma === null || e.beta === null) return;
+
                 const tiltX = (e.gamma) / 2; // Left/Right
                 const tiltY = (e.beta - 45) / 2; // Front/Back (assuming holding at 45deg)
 
                 // Limit the tilt
-                const limit = 15;
+                const limit = 10;
                 const x = Math.max(Math.min(tiltX, limit), -limit);
                 const y = Math.max(Math.min(tiltY, limit), -limit);
 
