@@ -27,10 +27,29 @@
         // 1.bind
         const box = document.querySelector('.box');
         let bigMan = "Trump";
-        
-        // box = "hello";
-        // console.log('box', box);
-        
+        let num1 = 100;
+        let num2 = '200';
+        let result;
+
+
+        console.log('box', box);
+
+        console.log('bigMan', bigMan);
+        console.log('bigMan typeof', typeof (bigMan));
+
+        console.log('num1', num1);
+        console.log('num1 typeof', typeof (num1));
+        console.log('num2', num2);
+        console.log('num2 typeof', typeof (num2));
+        result = num1 + Number(num2);
+        // Number() 強制轉型
+        // parseInt() 轉整數
+        // parseFloat() 轉浮點數
+        console.log('result', result);
+        console.log('result typeof', typeof (result));
+
+
+
         // 2.action
         box.addEventListener('click', function () {
             let text = "click ok";
