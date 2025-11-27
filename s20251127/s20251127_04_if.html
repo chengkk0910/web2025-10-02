@@ -37,6 +37,14 @@
             font-size: 24px;
             border-radius: 20px;
         }
+
+        .text-red {
+            color: lightcoral;
+        }
+
+        .text-blue {
+            color: lightblue;
+        }
     </style>
 </head>
 
@@ -56,7 +64,6 @@
                 <p>
                     <input type="submit" value="送出" id="submitBtn">
                 </p>
-
             </form>
         </div>
     </div>
@@ -84,16 +91,26 @@
             // 阻止表單預設行為
             e.preventDefault();
 
-            let tmpName = nameInput.value;
             // 懶人包 數字 轉型
+            let tmpName = nameInput.value;
             let tmpScore = Number(scoreInput.value);
+            let resultText = "";
+
             console.log('tmpName', tmpName);
             console.log('tmpScore', tmpScore);
             // typeof
             console.log('tmpName typeof', typeof (tmpName));
             console.log('tmpScore typeof', typeof (tmpScore));
 
-            resultSpan.innerText = tmpName + ' ' + tmpScore + '分 ';
+            if (tmpScore >= 60) {
+                resultText = "恭喜通過";
+                resultSpan.setAttribute('class', 'text-blue');
+            } else {
+                resultText = "再撐一下下";
+                resultSpan.setAttribute('class', 'text-red');
+            }
+
+            resultSpan.innerText = tmpName + ' ' + tmpScore + '分 ' + resultText;
 
             // input value
             // span box innerText
