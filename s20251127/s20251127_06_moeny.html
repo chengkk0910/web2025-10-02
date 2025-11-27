@@ -47,7 +47,7 @@
                     <td>
                         <input type="text" name="house" id="house" value="0">
                     </td>
-                </tr> 
+                </tr>
                 <tr>
                     <td class="label-text">
                         <label for="food">2.生活 食物/生活用品</label>
@@ -96,6 +96,12 @@
             <h3>1.財物安全</h3>
             <p>每月支出總計：<span id="monthly-total"></span></p>
             <p>每年支出總計：<span id="annual-total"></span></p>
+            <p>10年支出總計：<span id="decade-total"></span></p>
+            <h3>2.財務活力 娛樂費 治裝費 </h3>
+            <h3>3.財務獨立 奢侈品 捐贈</h3>
+            <h3>4.財務自由</h3>
+            <h3>5.絕對財務自由</h3>
+
         </div>
     </div>
 
@@ -110,10 +116,18 @@
 
         let monthlyTotalSpan = document.getElementById('monthly-total');
         let annualTotalSpan = document.getElementById('annual-total');
+        let decadeTotalSpan = document.getElementById('decade-total');
 
         let calcBtn = document.getElementById('calcBtn');
 
         // 2.action
+
+        // setDefaultValue
+        houseInput.value = 6000;
+        foodInput.value = 10000;
+        utilitiesInput.value = 1500;
+        transportationInput.value = 1500;
+        insuranceInput.value = 1000;
 
         calcBtn.addEventListener('click', function () {
             let tmpHouse = Number(houseInput.value);
@@ -125,6 +139,8 @@
             let annualTotal = monthlyTotal * 12;
             monthlyTotalSpan.innerText = monthlyTotal;
             annualTotalSpan.innerText = annualTotal;
+            let decadeTotal = annualTotal * 10;
+            decadeTotalSpan.innerText = decadeTotal;
         });
     </script>
 </body>
