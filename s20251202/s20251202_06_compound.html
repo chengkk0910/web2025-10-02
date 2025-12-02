@@ -81,7 +81,7 @@
         console.log('click btn');
         let moneyValue = money.value;
         let rateValue = rate.value / 100 + 1;
-        
+
         let yearValue = year.value;
         console.log('moneyValue', moneyValue);
         console.log('rateValue', rateValue);
@@ -113,10 +113,27 @@
             } else {
                 sum = parseInt(sum * Number(rateValue));
             }
-            let tmpText = `第${i}年.金額為：${sum}<br>`;
-            resultText += tmpText;
 
-            console.log(tmpText);
+            switch (i) {
+                case 1:
+                case 5:
+                case 10:
+                case 15:
+                case 20:
+                case 25:
+                case 30:
+                case 35:
+                case 40:
+                    let tmpText = `第${i}年.金額為：${sum}<br>`;
+                    resultText += tmpText;
+                    console.log(tmpText);
+                    break;
+
+                default:
+                    break;
+            }
+
+
         }
 
 
