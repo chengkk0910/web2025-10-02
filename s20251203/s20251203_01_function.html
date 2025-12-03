@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // 1.好寶寶印章 中央廚房
+        function goodFun() {
+            console.log("你是個好寶寶");
+        }
+
+        goodFun();
+        goodFun();
+        goodFun();
+
+
+        // 2.日期印章 
+        function dateFun(month, day) {
+            console.log(`今天是${month}月${day}日`);
+        }
+
+        // dateFun(12, 3);
+        // dateFun(1, 1);
+
+        for (let index = 1; index <= 31; index++) {
+            dateFun(12, index);
+
+        }
+
+
+        // 3.販賣機
+        function vendingMachine(money, drink) {
+            let tmpText = `投入${money}元，購買${drink}`;
+            return tmpText;
+        }
+        let result = vendingMachine(50, "可樂");
+        console.log('result', result);
+
+    </script>
+</body>
+
+</html>
