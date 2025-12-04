@@ -7,5 +7,11 @@ $assocArr = [
     "city" => "New York"
 ];
 
+
 $text= "$a $b $c";
 $text= '$a $b $c';
+
+// foreach
+foreach ($assocArr as $key => $value) {
+    # code...
+}

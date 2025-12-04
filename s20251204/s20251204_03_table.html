@@ -35,15 +35,50 @@
                 mobile
             </td>
         </tr>
-        <tr>
+        <!-- <tr>
             <td>1</td>
             <td>amy</td>
             <td>0911</td>
-        </tr>
+        </tr> -->
 
     </table>
 
     <script>
+        // data
+        const data = [
+            {
+                'id': 1,
+                'name': 'amy',
+                'mobile': '0911'
+            },
+            {
+                'id': 2,
+                'name': 'bob',
+                'mobile': '0922'
+            },
+            {
+                'id': 3,
+                'name': 'cat',
+                'mobile': '0933'
+            }
+        ];
+
+        console.log('data', data);
+        // console.log('data[0]', data[0]);
+        // console.log('data[1]', data[1]);
+        // console.log('data[2]', data[2]);
+
+        // forEach
+        data.forEach(function (value, key) {
+            console.log('key', key);
+            console.log('value', value);
+            console.log('value.id', value.id);
+            console.log('value.name', value.name);
+            console.log('value.mobile', value.mobile);
+        });
+
+
+
         // 1.bind
         // const myTable = document.querySelector('#myTable');
         const myTable = document.getElementById('myTable');
@@ -54,15 +89,22 @@
                 <td>amy</td>
                 <td>0911</td>
             </tr>
+            <tr>
+                <td>2</td>
+                <td>bob</td>
+                <td>0911</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>cat</td>
+                <td>0911</td>
+            </tr>
         `;
 
 
         console.log('myTable', myTable);
         // 2.action
         // myTable.innerHTML = tmpText;
-        myTable.innerHTML += tmpText;
-        myTable.innerHTML += tmpText;
-        myTable.innerHTML += tmpText;
         myTable.innerHTML += tmpText;
 
     </script>
