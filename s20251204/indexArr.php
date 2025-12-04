@@ -6,3 +6,6 @@ $assocArr = [
     "age" => 30,
     "city" => "New York"
 ];
+
+$text= "$a $b $c";
+$text= '$a $b $c';

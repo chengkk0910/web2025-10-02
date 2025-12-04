@@ -10,6 +10,12 @@
 <body>
 
     <script>
+        let myArr = [1, 2, 3, 4, 5];
+        console.log('myArr', myArr);
+        console.log('myArr[0]', myArr[0]);
+        console.log('myArr[2]', myArr[2]);
+
+
         // 外層用 array 之後可以用forEach
         let myObj = [
             {
@@ -26,6 +32,19 @@
             }
         ];
         console.log('myObj', myObj);
+        console.log('myObj[0]', myObj[0]);
+        console.log('myObj[0].name', myObj[0].name);
+        console.log('myObj[0]["id"]', myObj[0]['id']);
+        console.log('myObj[2]', myObj[2]);
+
+        let a = 10;
+        let b = 20;
+        let c = a + b;
+        // esc 下面 重音符號
+        let tmpText = `${a} + ${b} = ${c}`;
+        let errorText = '${a} + ${b} = ${c}';
+        let errorText2 = "${a} + ${b} = ${c}";
+
 
     </script>
 </body>
