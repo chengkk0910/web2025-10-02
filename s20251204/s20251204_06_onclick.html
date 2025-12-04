@@ -23,6 +23,8 @@
 </head>
 
 <body>
+
+    <!-- inline css or inline event 不容易維護 建議少用 -->
     <!-- <div class="box" onclick="boxFun()"> -->
     <div class="box">
 
@@ -34,6 +36,8 @@
         function boxFun() {
             console.log('boxFun ok');
         }
+
+        boxFun();
 
         console.log('boxFun', boxFun);
 
@@ -51,6 +55,10 @@
         // mouseLeave
 
         box.addEventListener('click', boxFun);
+
+        box.addEventListener('mouseenter', function () {
+            box.setAttribute('class', 'box bg-pink');
+        });
     </script>
 </body>
 
