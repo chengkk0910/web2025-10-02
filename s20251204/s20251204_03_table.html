@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table,
+        th,
+        td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+        table {
+            width: 80%;
+            margin: auto;
+            text-align: center;
+
+        }
+    </style>
+</head>
+
+<body>
+    <table id="myTable">
+        <tr>
+            <td width="20%">
+                id
+            </td>
+            <td width="20%">
+                name
+            </td>
+            <td>
+                mobile
+            </td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>amy</td>
+            <td>0911</td>
+        </tr>
+
+    </table>
+
+    <script>
+        // 1.bind
+        // const myTable = document.querySelector('#myTable');
+        const myTable = document.getElementById('myTable');
+
+        let tmpText = `
+            <tr>
+                <td>1</td>
+                <td>amy</td>
+                <td>0911</td>
+            </tr>
+        `;
+
+
+        console.log('myTable', myTable);
+        // 2.action
+        // myTable.innerHTML = tmpText;
+        myTable.innerHTML += tmpText;
+        myTable.innerHTML += tmpText;
+        myTable.innerHTML += tmpText;
+        myTable.innerHTML += tmpText;
+
+    </script>
+</body>
+
+</html>
