@@ -60,7 +60,17 @@
                 'id': 3,
                 'name': 'cat',
                 'mobile': '0933'
-            }
+            },
+            {
+                'id': 4,
+                'name': 'dog',
+                'mobile': '0944'
+            },
+            {
+                'id': 5,
+                'name': 'egg',
+                'mobile': '0955'
+            },
         ];
 
         console.log('data', data);
@@ -69,40 +79,30 @@
         // console.log('data[2]', data[2]);
 
         // forEach
+        let tmpText = ``;
         data.forEach(function (value, key) {
-            console.log('key', key);
-            console.log('value', value);
-            console.log('value.id', value.id);
-            console.log('value.name', value.name);
-            console.log('value.mobile', value.mobile);
+            tmpText += `
+                <tr>
+                    <td>${value.id}</td>
+                    <td>${value.name}</td>
+                    <td>${value.mobile}</td>
+                </tr>
+            `;
+            // console.log('key', key);
+            // console.log('value', value);
+            // console.log('value.id', value.id);
+            // console.log('value.name', value.name);
+            // console.log('value.mobile', value.mobile);
         });
+        console.log('tmpText', tmpText);
 
 
 
         // 1.bind
         // const myTable = document.querySelector('#myTable');
         const myTable = document.getElementById('myTable');
-
-        let tmpText = `
-            <tr>
-                <td>1</td>
-                <td>amy</td>
-                <td>0911</td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>bob</td>
-                <td>0911</td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>cat</td>
-                <td>0911</td>
-            </tr>
-        `;
-
-
         console.log('myTable', myTable);
+
         // 2.action
         // myTable.innerHTML = tmpText;
         myTable.innerHTML += tmpText;
