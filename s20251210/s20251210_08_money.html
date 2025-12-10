@@ -126,7 +126,43 @@
             const annualTotalSpan = $('#annual-total');
             const decadeTotalSpan = $('#decade-total');
 
+
+
             // 2.action
+            // init 初始值
+            houseInput.val('6000');
+            foodInput.val('9000');
+            utilitiesInput.val('2000');
+            transportationInput.val('2000');
+            insuranceInput.val('1000');
+
+
+            calcBtn.click(function () {
+                console.log('calcBtn ok');
+                // 取得輸入值
+                let houseValue = Number(houseInput.val());
+                let foodValue = Number(foodInput.val());
+                let utilitiesValue = Number(utilitiesInput.val());
+                let transportationValue = Number(transportationInput.val());
+                let insuranceValue = Number(insuranceInput.val());
+
+                console.log('houseValue', houseValue);
+                console.log('foodValue', foodValue);
+                console.log('utilitiesValue', utilitiesValue);
+                console.log('transportationValue', transportationValue);
+                console.log('insuranceValue', insuranceValue);
+
+                // 計算總額
+                let monthlyTotal = houseValue + foodValue + utilitiesValue + transportationValue + insuranceValue;
+                let annualTotal = monthlyTotal * 12;
+                let decadeTotal = annualTotal * 10;
+                console.log('monthlyTotal', monthlyTotal);
+
+                monthlyTotalSpan.text(monthlyTotal);
+                annualTotalSpan.text(annualTotal);
+                decadeTotalSpan.text(decadeTotal);
+
+            });
         });
 
     </script>
