@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 300px;
+            height: 300px;
+            background-color: lightblue;
+            margin: auto;
+        }
+
+        .btn-container {
+            width: 300px;
+            height: 100px;
+            background-color: lightpink;
+            margin: auto;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .button-size {
+            width: 80px;
+            height: 80px;
+            border-radius: 80px;
+        }
+
+        .red-btn {
+            background-color: lightcoral;
+
+        }
+
+        .yellow-btn {
+            background-color: lightyellow;
+        }
+
+        .green-btn {
+            background-color: lightgreen;
+        }
+
+        .bg-yellow {
+            background-color: lightyellow;
+        }
+
+        .bg-green {
+            background-color: lightgreen;
+        }
+
+        .bg-red {
+            background-color: lightcoral;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="box">
+
+    </div>
+    <div class="btn-container">
+        <div class="button-size green-btn">
+
+        </div>
+        <div class="button-size red-btn">
+
+        </div>
+        <div class="button-size yellow-btn">
+
+        </div>
+    </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script>
+
+        // jqeury start
+        $(document).ready(function () {
+            // 1.bind
+            // const box = document.querySelector('.box');
+            // const myBtn = document.querySelector('.myBtn');
+            const box = $('.box');
+            const greenBtn = $('.green-btn');
+            const redBtn = $('.red-btn');
+            const yellowBtn = $('.yellow-btn');
+
+            console.log('box', box);
+
+            //2.action
+            // myBtn.addEventListener('click', function () {
+            //     // box.style.backgroundColor = 'lightgreen';
+            //     console.log('myBtn click ok');
+
+            // });
+
+            greenBtn.click(function () {
+                console.log('jqeury greenBtn click ok');
+                box.attr('class', 'box bg-green');
+            });
+
+            redBtn.click(function () {
+                console.log('jqeury redBtn click ok');
+                box.attr('class', 'box bg-red');
+            });
+
+            yellowBtn.click(function () {
+                console.log('jqeury yellowBtn click ok');
+                box.attr('class', 'box bg-yellow');
+
+            });
+        });
+        // jquery end
+
+    </script>
+</body>
+
+</html>
