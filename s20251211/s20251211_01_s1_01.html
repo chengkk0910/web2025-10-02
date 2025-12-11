@@ -7,13 +7,24 @@
     <title>Document</title>
     <style>
         .container {
-            width: 80%;
+            width: 30%;
             height: 50vh;
             background-color: lightblue;
             margin: auto;
             margin-top: 20px;
+
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
         }
-        h3{
+
+        h3 {
+            text-align: center;
+        }
+
+        .container>div {
+            width: 80%;
             text-align: center;
         }
     </style>
@@ -25,25 +36,24 @@
         單筆投資未來值計算
     </h3>
     <div class="container container-s1-input ">
-        <p>
+        <div>
             <label for="moeny-s1">單筆金額</label>
             <input type="number" name="" id="moeny-s1">
-        </p>
+        </div>
 
-        <p>
+        <div>
             <label for="year-s1">投資時間</label>
             <input type="number" name="" id="year-s1">
-        </p>
+        </div>
 
-        <p>
+        <div>
             <label for="rate-s1">投資利率</label>
             <input type="number" name="" id="rate-s1">
-        </p>
+        </div>
 
-        <p>
+        <div>
             <input type="submit" value="單筆投資計算">
-        </p>
-
+        </div>
 
 
     </div>
