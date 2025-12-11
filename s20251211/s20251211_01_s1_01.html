@@ -106,7 +106,6 @@
                 console.log('getYearS1', getYearS1);
                 console.log('getRateS1', getRateS1);
 
-                let sumS1 = 0;
 
                 // 計算
                 // 1. 100
@@ -116,11 +115,24 @@
                 // 第1年 1000000
                 // 第2年 1000000 * (1 + 0.1)
                 // 第3年 1000000 * (1 + 0.1) *
+                let sumS1 = 0;
                 let tmpText = ``;
                 for (let i = 1; i <= getYearS1; i++) {
                     // console.log('i', i);
                     tmpText += `第${i}年： <br>`;
 
+                    // 第一年
+
+                    // toFixed(0) 取整數
+                    // 四捨五入 到 0 位
+                    if (i == 1) {
+                        sumS1 = getMoneyS1;
+                        tmpText += `${sumS1.toFixed(0)} 元 <br>`;
+                    } else {
+                        // 其他年份
+                        sumS1 = sumS1 * (1 + getRateS1);
+                        tmpText += `${sumS1.toFixed(0)} 元 <br>`;
+                    }
                 }
                 console.log('tmpText', tmpText);
 
