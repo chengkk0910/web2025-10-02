@@ -22,6 +22,8 @@
             align-items: center;
             flex-wrap: wrap;
 
+            border-radius: 10px;
+
             padding: 30px;
         }
 
@@ -36,7 +38,7 @@
         }
 
         .text-red {
-            color: red;
+            color: lightcoral;
             /* font-weight: bold; */
         }
     </style>
@@ -127,18 +129,18 @@
                 // 第3年 1000000 * (1 + 0.1) *
                 let sumS1 = 0;
                 let tmpText = ``;
-                for (let i = 1; i <= getYearS1; i++) {
+                for (let i = 0; i <= getYearS1; i++) {
                     // console.log('i', i);
-                    tmpText += `第${i}年：`;
-
+                    
                     // 第一年
-
+                    
                     // toFixed(0) 取整數
                     // 四捨五入 到 0 位
-                    if (i == 1) {
+                    if (i == 0) {
                         sumS1 = getMoneyS1;
-                        tmpText += `${sumS1.toFixed(0)} 元 <br>`;
+                        tmpText += `單筆投入 ${sumS1.toFixed(0)} 元 <br>`;
                     } else {
+                        tmpText += `第${i}年：`;
                         // 其他年份
                         sumS1 = sumS1 * (1 + getRateS1);
                         tmpText += `${sumS1.toFixed(0)} 元 <br>`;
