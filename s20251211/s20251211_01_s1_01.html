@@ -33,26 +33,26 @@
 <body>
 
     <h3>
-        單筆投資未來值計算
+        單筆投資
     </h3>
     <div class="container container-s1-input ">
         <div>
-            <label for="moeny-s1">單筆金額</label>
-            <input type="number" name="" id="moeny-s1">
+            <label for="moenyS1">單筆金額 元</label>
+            <input type="number" name="" id="moenyS1" value="0">
         </div>
 
         <div>
-            <label for="year-s1">投資時間</label>
-            <input type="number" name="" id="year-s1">
+            <label for="yearS1">投資時間 年</label>
+            <input type="number" name="" id="yearS1" value="0">
         </div>
 
         <div>
-            <label for="rate-s1">投資利率</label>
-            <input type="number" name="" id="rate-s1">
+            <label for="rateS1">投資利率 %</label>
+            <input type="number" name="" id="rateS1" value="0">
         </div>
 
         <div>
-            <input type="submit" value="單筆投資計算">
+            <input type="submit" value="單筆投資計算" id="btnS1">
         </div>
 
 
@@ -60,12 +60,48 @@
 
 
     <div class="container container-s1-output">
-        <div id="result-s1">
+        <div id="resultS1">
             1. 100元 <br>
             2. 110元 <br>
         </div>
     </div>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script>
+        $(document).ready(function () {
+            // 1.bind
+            // input
+            const moneyS1 = $('#moenyS1');
+            const yearS1 = $('#yearS1');
+            const rateS1 = $('#rateS1');
+            // output
+            const resultS1 = $('#resultS1');
+            // button
+            const btnS1 = $('#btnS1');
+
+            console.log('moneyS1', moneyS1);
+            console.log('yearS1', yearS1);
+            console.log('rateS1', rateS1);
+            console.log('resultS1', resultS1);
+            console.log('btnS1', btnS1);
+
+            // 2.action
+            // init value
+            moneyS1.val(1000000);
+            yearS1.val(7);
+            rateS1.val(10);
+
+            btnS1.click(function () {
+                console.log('btnS1 clicked');
+
+            });
+
+        });
+
+    </script>
 </body>
 
 </html>
