@@ -8,7 +8,7 @@
     <style>
         .container {
             width: 30%;
-            height: 50vh;
+            /* height: 50vh; */
             background-color: lightblue;
             margin: auto;
             margin-top: 20px;
@@ -17,6 +17,8 @@
             justify-content: space-around;
             align-items: center;
             flex-wrap: wrap;
+
+            padding: 30px;
         }
 
         h3 {
@@ -61,8 +63,8 @@
 
     <div class="container container-s1-output">
         <div id="resultS1">
-            1. 100元 <br>
-            2. 110元 <br>
+            <!-- 1. 100元 <br>
+            2. 110元 <br> -->
         </div>
     </div>
 
@@ -96,6 +98,33 @@
 
             btnS1.click(function () {
                 console.log('btnS1 clicked');
+                // get input value
+                let getMoneyS1 = Number(moneyS1.val());
+                let getYearS1 = Number(yearS1.val());
+                let getRateS1 = Number(rateS1.val()) / 100;
+                console.log('getMoneyS1', getMoneyS1);
+                console.log('getYearS1', getYearS1);
+                console.log('getRateS1', getRateS1);
+
+                let sumS1 = 0;
+
+                // 計算
+                // 1. 100
+                // 2. 100 * (1 + 0.1) = 110
+                // 3. 110 * (1 + 0.1) = 121
+
+                // 第1年 1000000
+                // 第2年 1000000 * (1 + 0.1)
+                // 第3年 1000000 * (1 + 0.1) *
+                let tmpText = ``;
+                for (let i = 1; i <= getYearS1; i++) {
+                    // console.log('i', i);
+                    tmpText += `第${i}年： <br>`;
+
+                }
+                console.log('tmpText', tmpText);
+
+                resultS1.html(tmpText);
 
             });
 
