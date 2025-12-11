@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
         .container {
             width: 30%;
             /* height: 50vh; */
@@ -26,8 +30,14 @@
         }
 
         .container>div {
-            width: 80%;
+            width: 100%;
             text-align: center;
+            padding: 5px;
+        }
+
+        .text-red {
+            color: red;
+            font-weight: bold;
         }
     </style>
 </head>
@@ -137,6 +147,16 @@
                 console.log('tmpText', tmpText);
 
                 resultS1.html(tmpText);
+
+                let lastLine = `<span class='text-red'>總計 ${getYearS1}年：${sumS1.toFixed(0)} 元<br><br></span>`;
+                resultS1.prepend(lastLine);
+
+                // let firstLine = '這是第一行文字<br>';
+                // let lastLine = '這是最後一行文字<br>';
+
+                // // append vs prepend
+                // resultS1.prepend(firstLine);
+                // resultS1.append(lastLine);
 
             });
 
