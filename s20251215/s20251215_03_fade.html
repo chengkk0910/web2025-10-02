@@ -50,6 +50,8 @@
             // 1.bind
             const box = $('.box');
             const btn = $('.btn');
+
+            // flag
             let isBlue = true;
             let isHiden = false;
 
@@ -69,26 +71,24 @@
                 // click -> toogle -> 淡入淡出 變成黃色
 
 
-
-
-                box.fadeToggle(2000, () => {
-                    if (isHiden) {
-                        isHidden = true;
+                if (isHiden) {
+                    box.fadeIn(1000);
+                    isHiden = false;
+                    return;
+                } else {
+                    // 在收起來 才會變色
+                    box.fadeOut(1000, function () {
+                        // callback
                         if (isBlue) {
-                            console.log('isBlue', isBlue);
                             box.attr('class', 'box bg-yellow');
                             isBlue = false;
-                        }
-                        else {
-                            console.log('isBlue', isBlue);
+                        } else {
                             box.attr('class', 'box bg-blue');
                             isBlue = true;
                         }
-                    } else {
-                        isHiden = false;
-                    }
-
-                });
+                        isHiden = true;
+                    });
+                }
 
                 // box.fadeIn(3000);
                 // box.fadeOut(3000);
