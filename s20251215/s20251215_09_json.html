@@ -5,9 +5,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        table {
+            width: 80%;
+            margin: auto;
+            text-align: center;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+    </style>
 </head>
 
 <body>
+
+    <table id="myTable">
+        <tr>
+            <td>ID</td>
+            <td>Name</td>
+            <td>Mobile</td>
+        </tr>
+        <!-- <tr>
+            <td>1</td>
+            <td>amy</td>
+            <td>0911</td>
+        </tr> -->
+
+
+    </table>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
         integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
@@ -36,7 +65,25 @@
 
             console.log('data', data);
 
+            // 1.bind
+            const myTable = $('#myTable');
+            console.log('myTable', myTable);
 
+
+            // 2.action
+            let temText = ``;
+
+            $.each(data, function (key, value) {
+                temText += `
+                    <tr>
+                        <td>${value.id}</td>
+                        <td>${value.name}</td>
+                        <td>${value.mobile}</td>
+                    </tr>
+                `;
+            });
+
+            myTable.append(temText);
         });
 
     </script>
