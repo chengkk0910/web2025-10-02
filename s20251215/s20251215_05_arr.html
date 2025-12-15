@@ -17,10 +17,13 @@
         $(document).ready(function () {
             let myArr = [1, 2, 3, 4, 5];
             console.log('myArr', myArr);
+            console.log('myArr typeof', typeof (myArr));
+            // isArray ? 
+            console.log('Array.isArray(myArr) ', Array.isArray(myArr));
             // forEach
             myArr.forEach(function (value, key) {
                 // key index
-                // value item
+                // value item element
                 console.log('key', key);
                 console.log('value', value);
             })
