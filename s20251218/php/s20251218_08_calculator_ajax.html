@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container-input {
+            width: 50%;
+            margin: auto;
+            /* border: 1px solid black; */
+            /* background-color: lightblue; */
+            text-align: center;
+        }
+
+        .container-output {
+            width: 50%;
+            margin: auto;
+            /* border: 1px solid black; */
+            /* background-color: lightgray; */
+            text-align: center;
+        }
+
+        input,
+        select,
+        button {
+            width: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-input">
+        <form action="" method="get" id="myForm">
+            <p>
+                <input type="number" name="num1" id="num1" value="100">
+            </p>
+            <p>
+                <select name="opt" id="opt">
+                    <option value="+">+</option>
+                    <option value="-">-</option>
+                    <option value="*">*</option>
+                    <option value="/">/</option>
+                </select>
+            </p>
+            <p>
+                <input type="number" name="num2" id="num2" value="50">
+            </p>
+            <p>
+                <button type="submit" id="btnCalc">計算</button>
+            </p>
+        </form>
+    </div>
+
+    <div class="container-output">
+        <h2>結果：<span id="result">0</span></h2>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script>
+        $(document).ready(function () {
+
+            // 1.bind
+            const myForm = $("#myForm");
+            const result = $("#result");
+
+            console.log('myForm', myForm);
+
+
+            // 2.action  
+
+
+            $(myForm).submit(function (e) {
+                // form submit 阻擋預設行為
+                e.preventDefault();
+
+                let url = "./calculator.php";
+                let formData = myForm.serialize();
+                // let formData = myForm.serializeArray();
+                // console.log('formData', formData);
+                $.ajax({
+                    type: "get",
+                    url: url,
+                    data: formData,
+                    dataType: "json",
+                    success: function (res) {
+
+                        let data = res;
+                        console.log('data', data);
+                        result.text(data.result);
+                    }
+                });
+
+
+            });
+        });
+
+    </script>
+</body>
+
+</html>
