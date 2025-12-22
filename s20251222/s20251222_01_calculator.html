@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            width: 50%;
+            /* height: 30vh; */
+            margin: auto;
+            margin-top: 10px;
+            text-align: center;
+            /* padding: 10px; */
+            /* border: 1px solid black; */
+        }
+
+        .container-input {
+            /* background-color: lightblue; */
+        }
+
+        .container-output {
+            /* background-color: lightpink; */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container container-input">
+        <form action="" method="get">
+            <p>
+                <label for="num1"></label>
+                <input type="number" name="num1" id="num1" value="100">
+            </p>
+            <p>
+                <label for="num2"></label>
+                <input type="number" name="num2" id="num2" value="50">
+            </p>
+            <p>
+                <label for="opt"></label>
+                <select name="opt" id="opt">
+                    <option value="+">+</option>
+                    <option value="-">-</option>
+                    <option value="*">*</option>
+                    <option value="/">/</option>
+                </select>
+            </p>
+
+            <p>
+                <!-- input  -->
+                <!-- <input type="submit" value="計算"> -->
+                <button type="submit" id="btnCalc">計算</button>
+            </p>
+        </form>
+    </div>
+    <div class="container container-output">
+        <h2>結果：<span id="result">0</span></h2>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script>
+        $(document).ready(function () {
+
+            // jQuery methods go here...
+
+        });
+
+    </script>
+</body>
+
+</html>
