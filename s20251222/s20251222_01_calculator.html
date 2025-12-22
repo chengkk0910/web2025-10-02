@@ -28,7 +28,7 @@
 
 <body>
     <div class="container container-input">
-        <form action="" method="get">
+        <form action="" method="get" id="myForm">
             <p>
                 <label for="num1"></label>
                 <input type="number" name="num1" id="num1" value="100">
@@ -70,10 +70,30 @@
             const opt = $('#opt');
             const btnCalc = $('#btnCalc');
             const result = $('#result');
+            const myForm = $('#myForm');
 
             // 2.action
-            result.text('150');
-            
+            // result.text('150');
+            $(myForm).submit(function (e) {
+                e.preventDefault();
+
+                let url = './result.php';
+                let formData = myForm.serialize();
+
+                $.ajax({
+                    type: "GET",
+                    url: url,
+                    data: formData,
+                    dataType: "json",
+                    success: function (res) {
+                        console.log('res', res);
+                        result.text(res.textResult);
+
+                    }
+                });
+            });
+
+
 
         });
 
