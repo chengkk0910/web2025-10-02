@@ -20,8 +20,9 @@ $data = [
 $num1 = $data['num1'];
 $num2 = $data['num2'];
 $opt = $data['opt'];
+$color = $input['color'] ?? 'red';
 
-dd($data);
+// dd($data);
 
 $calcResult = 0;
 $textResult = '';
@@ -46,7 +47,27 @@ switch ($opt) {
         break;
 }
 
+
+$colorResult = "";
+switch ($color) {
+    case 'red':
+        $colorResult = "bg-red";
+        break;
+    case 'green':
+        $colorResult = "bg-green";
+        break;
+    case 'yellow':
+        $colorResult = "bg-yellow";
+        break;
+
+    default:
+        # code...
+        break;
+}
+
 $data['calcResult'] = $calcResult;
 $data['textResult'] = $textResult;
+$data['colorResult'] = $colorResult;
 
-dd($data);
+// dd($data);
+echo json_encode($data);

@@ -23,6 +23,18 @@
         .container-output {
             /* background-color: lightpink; */
         }
+
+        .bg-red {
+            background-color: lightpink;
+        }
+
+        .bg-green {
+            background-color: lightgreen;
+        }
+
+        .bg-yellow {
+            background-color: lightyellow;
+        }
     </style>
 </head>
 
@@ -46,6 +58,15 @@
                     <option value="/">/</option>
                 </select>
             </p>
+            <p>
+                <label for="color"></label>
+                <select name="color" id="color">
+                    <option value="red">紅</option>
+                    <option value="green">緑</option>
+                    <option value="yellow">黄</option>
+                </select>
+            </p>
+
 
             <p>
                 <!-- input  -->
@@ -55,7 +76,7 @@
         </form>
     </div>
     <div class="container container-output">
-        <h2>結果：<span id="result">0</span></h2>
+        <h2>結果：<span id="result" class="bg-red">0</span></h2>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
@@ -73,7 +94,7 @@
             const myForm = $('#myForm');
 
             // 2.action
-            // result.text('150');
+            result.text('150');
             $(myForm).submit(function (e) {
                 e.preventDefault();
 
@@ -88,6 +109,9 @@
                     success: function (res) {
                         console.log('res', res);
                         result.text(res.textResult);
+                        console.log('res.colorResult', res.colorResult);
+
+                        result.attr('class', res.colorResult);
 
                     }
                 });
