@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/css/bootstrap.min.css"
+        integrity="sha512-2bBQCjcnw658Lho4nlXJcc6WkV/UxpE/sAokbXPxQNGqmNdQrWqtw26Ns9kFF/yG792pKR1Sx8/Y1Lf1XN4GKA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+
+    <div class="container mt-3" id="alertBox">
+        <h2>Add Alerts</h2>
+        <!-- <div class="alert alert-success alert-dismissible">
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            <strong>Success!</strong> This alert box could indicate a successful or positive action.
+        </div>
+        <div class="alert alert-success alert-dismissible">
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            <strong>Success!</strong> This alert box could indicate a successful or positive action.
+        </div>
+        <div class="alert alert-success alert-dismissible">
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            <strong>Success!</strong> This alert box could indicate a successful or positive action.
+        </div>
+        <div class="alert alert-danger alert-dismissible">
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            <strong>Danger!</strong> This alert box could indicate a dangerous or potentially negative action.
+        </div> -->
+    </div>
+
+
+
+    <div class="container mt-3">
+        <h2>Button Styles</h2>
+        <button type="button" class="btn btn-success" data-name="green" id="btnOk">Success</button>
+        <button type="button" class="btn btn-danger" data-name="red" id="btnError">Danger</button>
+    </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/js/bootstrap.min.js"
+        integrity="sha512-nKXmKvJyiGQy343jatQlzDprflyB5c+tKCzGP3Uq67v+lmzfnZUi/ZT+fc6ITZfSC5HhaBKUIvr/nTLCV+7F+Q=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script>
+        $(document).ready(function () {
+
+            // 1. bind
+            const alertBox = $('#alertBox');
+            const btnOk = $('#btnOk');
+            const btnError = $('#btnError');
+
+            console.log('alertBox', alertBox);
+            console.log('btnOk', btnOk);
+            console.log('btnError', btnError);
+
+
+            // let okAlert = `
+            //     <div class="alert alert-success alert-dismissible">
+            //         <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            //         <strong>Success!</strong> This alert box could indicate a successful or positive action.
+            //     </div>
+            // `;
+
+            // let errorAlert = `
+            //     <div class="alert alert-danger alert-dismissible">
+            //         <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            //         <strong>Danger!</strong> This alert box could indicate a dangerous or potentially negative action.
+            //     </div>
+            // `;
+
+            // alertBox.append(okAlert);
+
+            // 2. action
+            btnOk.click(function (e) {
+                console.log('btn ok');
+
+                let getName = $(this).attr('data-name');
+                console.log('getName', getName);
+
+
+                let okAlert = `
+                <div class="alert alert-success alert-dismissible">
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                    <strong>Success!</strong> Hi ${getName}, This alert box could indicate a successful or positive action.
+                </div>
+            `;
+
+                alertBox.append(okAlert);
+            });
+
+            btnError.click(function (e) {
+                console.log('btn error');
+
+                let getName = $(this).attr('data-name');
+                console.log('getName', getName);
+
+                let errorAlert = `
+                    <div class="alert alert-danger alert-dismissible">
+                        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                        <strong>Danger!</strong> Hi ${getName},This alert box could indicate a dangerous or potentially negative action.
+                    </div>
+                `;
+
+                alertBox.append(errorAlert);
+            });
+
+        });
+
+    </script>
+</body>
+
+</html>
