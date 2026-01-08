@@ -12,22 +12,26 @@ VALUES
     (NULL, 'amy', '0911'),
     (NULL, 'bob', '0922'),
     (NULL, 'cat', '0933'),
-    (NULL, 'dog', '0944') -- 修改
+    (NULL, 'dog', '0944');
+
+-- 修改
 UPDATE
     `students`
 SET
     `mobile` = '0922-123'
 WHERE
-    `students`.`id` = 2 -- 刪除
+    `students`.`id` = 2;
+
+-- 刪除
 DELETE FROM
     `students`
 WHERE
-    `students`.`id` = 3 -- 查詢
+    `students`.`id` = 3;
 
-
+-- 查詢
 SELECT
     *
 FROM
     `students`
 WHERE
-    `students`.`id` = 4
+    `students`.`id` = 4;
