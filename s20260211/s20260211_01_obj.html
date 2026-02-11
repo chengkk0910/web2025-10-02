@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/css/bootstrap.min.css"
+        integrity="sha512-2bBQCjcnw658Lho4nlXJcc6WkV/UxpE/sAokbXPxQNGqmNdQrWqtw26Ns9kFF/yG792pKR1Sx8/Y1Lf1XN4GKA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/js/bootstrap.min.js"
+        integrity="sha512-nKXmKvJyiGQy343jatQlzDprflyB5c+tKCzGP3Uq67v+lmzfnZUi/ZT+fc6ITZfSC5HhaBKUIvr/nTLCV+7F+Q=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script>
+        $(document).ready(function () {
+
+            let myArr = [1, 2, 3, 4, 5];
+            console.log('myArr', myArr);
+
+            let myObj = {
+                id: 1,
+                name: 'John',
+                mobile: '0911'
+            };
+            console.log('myObj', myObj);
+
+            let students = [
+                {
+                    id: 1,
+                    name: 'amy',
+                    mobile: '0911'
+                },
+                {
+                    id: 2,
+                    name: 'bob',
+                    mobile: '0922'
+                },
+                {
+                    id: 3,
+                    name: 'cat',
+                    mobile: '0933'
+                }
+            ];
+            console.log('students', students);
+
+            let data = {
+                students: students,
+                myObj: myObj,
+                myArr: myArr
+            };
+            console.log('data', data);
+
+
+
+            // jQuery methods go here...
+
+        });
+
+    </script>
+</body>
+
+</html>
