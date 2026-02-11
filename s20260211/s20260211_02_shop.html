@@ -53,9 +53,14 @@
                     </td>
                     <td>100</td>
                     <td>
-                        <input type="number" class="form-control" value="1">
+                        <input id="p1Input" type="number" class="form-control" data-price="100" value="1" min="0"
+                            max="10">
                     </td>
-                    <td>100</td>
+                    <td>
+                        <span id="result1Span" class="resultSpan">
+                            100
+                        </span>
+                    </td>
                 </tr>
                 <tr>
                     <td>2</td>
@@ -68,7 +73,8 @@
                     </td>
                     <td>100</td>
                     <td>
-                        <input type="number" class="form-control" value="1">
+                        <input id="p2Input" type="number" class="form-control" data-price="100" value="1" min="0"
+                            max="10">
                     </td>
                     <td>100</td>
                 </tr>
@@ -83,7 +89,8 @@
                     </td>
                     <td>100</td>
                     <td>
-                        <input type="number" class="form-control" value="1">
+                        <input id="p3Input" type="number" class="form-control" data-price="100" value="1" min="0"
+                            max="10">
                     </td>
                     <td>100</td>
                 </tr>
@@ -99,6 +106,44 @@
         </table>
     </div>
 
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script>
+        $(document).ready(function () {
+
+            // 1.bind
+            let p1Input = $('#p1Input');
+            let result1Span = $('#result1Span');
+            console.log('p1Input', p1Input);
+
+
+            // 2.action
+            p1Input.change(function (e) {
+                // e.preventDefault();
+                // console.log($(this).val());
+                let tmpValue = $(this).val();
+                let tmpPrice = $(this).attr('data-price');
+                let tmpTotal = tmpValue * tmpPrice;
+                console.log('tmpValue', tmpValue);
+                console.log('tmpPrice', tmpPrice);
+                console.log('tmpTotal', tmpTotal);
+                // result1Span.text(tmpTotal);
+
+                // let tmpTr = $(this).closest('tr');
+                // let tmpTr = $(this).parents('tr');
+                let tmpTr = $(this).parent().parent();
+                let tmpResultSpan = tmpTr.find('.resultSpan');
+                tmpResultSpan.text(tmpTotal);
+
+
+
+            });
+        });
+
+    </script>
 </body>
 
 </html>
