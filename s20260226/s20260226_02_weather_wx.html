@@ -30,9 +30,9 @@
                 <!-- <tr>
                     <td>1</td>
                     <td>新北市</td>
-                    <td>20-25 °C 晴時多雲 <img src="./data/day/1.svg" alt=""> </td>
-                    <td>20-25 °C 晴時多雲 <img src="./data/day/1.svg" alt=""> </td>
-                    <td>20-25 °C 晴時多雲 <img src="./data/day/1.svg" alt=""> </td>
+                    <td>20-25 °C <img src="./data/day/1.svg" alt=""> </td>
+                    <td>20-25 °C </td>
+                    <td>20-25 °C </td>
                 </tr> -->
             </tbody>
         </table>
@@ -92,6 +92,14 @@
                         let time2Max = value.weatherElement[4].time[1].parameter.parameterName;
                         let time3Max = value.weatherElement[4].time[2].parameter.parameterName;
 
+                        let time1Wx = value.weatherElement[0].time[0].parameter.parameterName;
+                        let time2Wx = value.weatherElement[0].time[1].parameter.parameterName;
+                        let time3Wx = value.weatherElement[0].time[2].parameter.parameterName;
+
+                        let time1WxValue = value.weatherElement[0].time[0].parameter.parameterValue;
+                        let time2WxValue = value.weatherElement[0].time[1].parameter.parameterValue;
+                        let time3WxValue = value.weatherElement[0].time[2].parameter.parameterValue;
+
                         console.log('time1Min', time1Min);
                         console.log('time2Min', time2Min);
                         console.log('time3Min', time3Min);
@@ -102,9 +110,9 @@
                          <tr>
                             <td>${key + 1}</td>
                             <td>${value.locationName}</td>
-                            <td>${time1Min}-${time1Max} °C 晴時多雲 </td>
-                            <td>${time2Min}-${time2Max} °C 晴時多雲 </td>
-                            <td>${time3Min}-${time3Max} °C 晴時多雲 </td>
+                            <td>${time1Min}-${time1Max} °C  ${time1Wx} <img src="./data/day/${time1WxValue}.svg" alt=""></td>
+                            <td>${time2Min}-${time2Max} °C  ${time2Wx} <img src="./data/day/${time2WxValue}.svg" alt=""></td>
+                            <td>${time3Min}-${time3Max} °C  ${time3Wx} <img src="./data/day/${time3WxValue}.svg" alt=""></td>
                          </tr>
                         `;
 
