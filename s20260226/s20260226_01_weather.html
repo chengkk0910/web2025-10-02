@@ -12,6 +12,25 @@
 
 <body>
 
+    <div class="container mt-3">
+        <h2>Bordered Table</h2>
+        <p>The .table-bordered class adds borders on all sides of the table and the cells:</p>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>NAME</th>
+                </tr>
+            </thead>
+            <tbody id="myTbody">
+                <!-- <tr>
+                    <td>1</td>
+                    <td>新北市</td>
+                </tr> -->
+            </tbody>
+        </table>
+    </div>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/js/bootstrap.min.js"
         integrity="sha512-nKXmKvJyiGQy343jatQlzDprflyB5c+tKCzGP3Uq67v+lmzfnZUi/ZT+fc6ITZfSC5HhaBKUIvr/nTLCV+7F+Q=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -25,6 +44,12 @@
     <script>
         $(document).ready(function () {
 
+            // 1.bind
+            const myTbody = $('#myTbody');
+
+
+            // 2.action
+
             console.log('pwd', pwd);
 
             let url = `https://opendata.cwa.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=${pwd}`;
@@ -36,6 +61,28 @@
                 dataType: "json",
                 success: function (res) {
                     console.log('res', res);
+                    let data = res.records.location;
+                    // console.log('data', data);
+
+                    // foreach loop
+
+                    // let tmpText = ``;
+                    let tmpText = '';
+                    $.each(data, function (key, value) {
+
+                        console.log('key', key);
+                        console.log('value', value.locationName);
+                        // append table
+                        tmpText += `
+                         <tr>
+                            <td>${key + 1}</td>
+                            <td>${value.locationName}</td>
+                         </tr>
+                        `;
+
+                    });
+                    myTbody.append(tmpText);
+
 
                 }
             });
