@@ -20,12 +20,19 @@
                 <tr>
                     <th>ID</th>
                     <th>NAME</th>
+                    <th>時段一</th>
+                    <th>時段二</th>
+                    <th>時段三</th>
+
                 </tr>
             </thead>
             <tbody id="myTbody">
                 <!-- <tr>
                     <td>1</td>
                     <td>新北市</td>
+                    <td>20-25 °C </td>
+                    <td>20-25 °C </td>
+                    <td>20-25 °C </td>
                 </tr> -->
             </tbody>
         </table>
@@ -72,11 +79,31 @@
 
                         console.log('key', key);
                         console.log('value', value.locationName);
+                        // weatherElement[2] minT
+                        // weatherElement[4] maxT
+                        // time[0] 第一時段
+                        // time[1] 第二段
+                        // time[2] 第三段
+                        let time1Min = value.weatherElement[2].time[0].parameter.parameterName;
+                        let time2Min = value.weatherElement[2].time[1].parameter.parameterName;
+                        let time3Min = value.weatherElement[2].time[2].parameter.parameterName;
+                        let time1Max = value.weatherElement[4].time[0].parameter.parameterName;
+                        let time2Max = value.weatherElement[4].time[1].parameter.parameterName;
+                        let time3Max = value.weatherElement[4].time[2].parameter.parameterName;
+
+                        console.log('time1Min', time1Min);
+                        console.log('time2Min', time2Min);
+                        console.log('time3Min', time3Min);
+
+
                         // append table
                         tmpText += `
                          <tr>
                             <td>${key + 1}</td>
                             <td>${value.locationName}</td>
+                            <td>${time1Min}-${time1Max} °C </td>
+                            <td>${time2Min}-${time2Max} °C </td>
+                            <td>${time3Min}-${time3Max} °C </td>
                          </tr>
                         `;
 
