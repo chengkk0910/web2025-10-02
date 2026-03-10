@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/css/bootstrap.min.css"
+        integrity="sha512-2bBQCjcnw658Lho4nlXJcc6WkV/UxpE/sAokbXPxQNGqmNdQrWqtw26Ns9kFF/yG792pKR1Sx8/Y1Lf1XN4GKA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        .box {
+            width: 100%;
+            height: 300px;
+            text-align: center;
+            /* background-color: lightblue; */
+            margin: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col ">
+                <div class="box  text-white">
+                    <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
+                </div>
+            </div>
+            <div class="col ">
+                <div class="box  text-white">
+                    <canvas id="myChart2" style="width:100%;max-width:600px"></canvas>
+                </div>
+            </div>
+            <div class="col ">
+                <div class="box  text-white">
+                    <canvas id="myChartPie" style="width:100%;max-width:600px"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/js/bootstrap.min.js"
+        integrity="sha512-nKXmKvJyiGQy343jatQlzDprflyB5c+tKCzGP3Uq67v+lmzfnZUi/ZT+fc6ITZfSC5HhaBKUIvr/nTLCV+7F+Q=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+
+    <script>
+        // myChart 產率報表
+        let xValues = ["第一季", "第二季", "第三季", "第四季"];
+        let yValues = [55, 49, 44, 24];
+        let barColors = ["lightpink", "lightblue", "lightgreen", "lightyellow"];
+
+        new Chart("myChart", {
+            type: "bar",
+            data: {
+                labels: xValues,
+                datasets: [{
+                    backgroundColor: barColors,
+                    data: yValues
+                }]
+            },
+            options: {
+                legend: { display: false },
+                title: {
+                    display: true,
+                    text: "2026 產率報表"
+                }
+            }
+        });
+
+        // myChart 產率報表 end
+
+    </script>
+
+    <script>
+        let xValues2 = [50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150];
+        let yValues2 = [7, 8, 8, 9, 9, 9, 10, 11, 14, 14, 15];
+
+        new Chart("myChart2", {
+            type: "line",
+            data: {
+                labels: xValues2,
+                datasets: [{
+                    fill: false,
+                    lineTension: 0,
+                    backgroundColor: "rgba(0,0,255,1.0)",
+                    borderColor: "rgba(0,0,255,0.1)",
+                    data: yValues2
+                }]
+            },
+            options: {
+                legend: { display: false },
+                scales: {
+                    yAxes: [{ ticks: { min: 6, max: 16 } }],
+                }
+            }
+        });
+    </script>
+
+    <script>
+        let xValues3 = ["第一季", "第二季", "第三季", "第四季"];
+        let yValues3 = [55, 49, 44, 24];
+        let barColors3 = [
+            "lightpink",
+            "lightblue",
+            "lightgreen",
+            "lightyellow"
+        ];
+
+        new Chart("myChartPie", {
+            type: "pie",
+            data: {
+                labels: xValues3,
+                datasets: [{
+                    backgroundColor: barColors3,
+                    data: yValues3
+                }]
+            },
+            options: {
+                maintainAspectRatio: false, // 關鍵：不維持原始比例
+                title: {
+                    display: true,
+                    text: "2026 產率報表"
+                }
+            }
+        });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+
+            // jQuery methods go here...
+
+        });
+
+    </script>
+</body>
+
+</html>

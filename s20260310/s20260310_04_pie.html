@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+
+<body>
+
+    <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
+
+    <script>
+        var xValues = ["第一季", "第二季", "第三季", "第四季"];
+        var yValues = [55, 49, 44, 24];
+        var barColors = [
+            "lightpink",
+            "lightblue",
+            "lightgreen",
+            "lightyellow"
+        ];
+
+        new Chart("myChart", {
+            type: "pie",
+            data: {
+                labels: xValues,
+                datasets: [{
+                    backgroundColor: barColors,
+                    data: yValues
+                }]
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: "2026 產率報表"
+                }
+            }
+        });
+    </script>
+
+</body>
+
+</html>
